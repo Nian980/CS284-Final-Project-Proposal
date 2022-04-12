@@ -83,17 +83,15 @@
 	<h1 align="middle">Goals and Deliverables</h1>
 
 	<p>
-		This is the most important part of your proposal. You should carefully think through what you are trying to accomplish, what results you are going for, and why you think you can accomplish those goals. For example:
-    
-    Since this is a graphics class you will likely define the kind of images you will create (e.g. including a photo of a new lighting effect you will simulate).
-    
-    If you are working on an interactive system, describe what demo you will create.
-   
-   	Define how you will measure the quality / performance of your system (e.g. graphs showing speedup, or quantifying accuracy). It may not be possible to define precise target metrics at this time, but we encourage you to try.
-    
-    What questions do you plan to answer with your analysis?
-    
-    You should break this section into two parts: (1) what you plan to deliver, and (2) what you hope to deliver. In (1), describe what you believe you must accomplish to have a successful project and achieve the grade you expect (i.e. your baseline plan -- planning for some unexpected problems would make sense). In (2), describe what you hope to achieve if things go well and you get ahead of schedule (your aspirational plan).
+		The overall plan for this project is to create a formulation of the physically-based neural rendering that is differentiable to many attributes of the actor, including geometry, appearance (texture), skinning weights, and the skeleton pose. With that, we would be able to perform inverse rendering from multi-view rgb images, thus should be able to disentangle and optimize for all those aforementioned attributes through gradient descent. The plan is to build on top of our recent project TAVA, which already establishes a neural rendering process that can be used to reconstruct the geometry, appearance and skinning weights of an actor assuming known skeleton pose. This project would focus more on the differentiable formulation of the skeleton pose in the rendering pipeline, making it optimizable through inverse rendering. Yet this is a challenging problem as the skinning weights and skeleton pose are usually tightly coupled and hard to disentangle. Our baseline plan is to assume that we have an inaccurate initialization of the skeleton pose of the actor (which we plan to perturb the groundtruth skeleton pose), and jointly optimize this skeleton pose together with other attributes to make it accurate. After accomplishing this, our advanced plan is to increase the magnitude of the perturbation to the input pose and in the end we would like to be able to optimize the input skeleton pose from scratch without any reliance on a good initialization. The deliverables from this project are expected to cover the following:
+		
+		<ul>
+			<li>We plan to show that given an inaccurate initial skeleton pose estimation of the actor, we would be able to correct the skeleton pose, recover the 3D attributes of the actor, and render realistic images of the actor in multiple views. The preliminary work TAVA is expected to fail without accurate skeleton pose.</li>
+			<li>We further plan to animate the reconstructed actor using novel poses and render it into images to show our formulation is able to disentangle the skinning weights with the skeleton pose from rgb images.</li>
+		</ul>
+
+		Furthermore, we also plan to speedup the TAVA rendering pipeline by introducing the most recent voxel-based rendering techniques, such as instant-ngp [3], PlenOctree [4], Plenoxels [5]. This will be evaluated by comparing the number of rays that can be rendered per second.
+
 	</p>
 	<br>
 
@@ -133,12 +131,13 @@
 		</ul>
 	</p>
 
+	<br>
 
 
 	<h1 align="middle">Resources</h1>
 
 	<p>
-		List what resources, e.g. books, papers and/or online resources that are references for your project. List the computing platform, hardware and software resources that you will use for your project. You have a wide latitude here to use what you have access to, but be aware that you will have to support and trouble-shoot on your platform yourselves. If you are starting from an existing piece of code or system, describe and provide a pointer to it here.
+		
 	</p>
 	<br>
 
