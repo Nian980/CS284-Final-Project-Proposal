@@ -66,8 +66,16 @@
 	<h1 align="middle">Problem Description</h1>
 
 	<p>
-		This project will be built on top of Ruilong’s recent submission “TAVA: Template-free Animatable Volumetric Actors,” which extends MipNeRF to animatable objects. The pipeline of TAVA is shown in Figure 1 (below). TAVA already succeeds at extracting a 3D shape and skeleton skinning weights which extrapolate well to poses not seen during training (out-of-distribution). However, the input TAVA needs to extract this info includes multi-view video as well as per-frame ground truth skeleton pose information, the latter of which might not be readily available to the common person. To make rendering 3D animatable actors more accessible, we plan to decrease TAVA’s dependence on skeleton pose information. Specifically, we aim to show that 1) approximate skeleton pose data can be inferred directly from multi-view video; and 2) inferred skeleton pose data is sufficient to produce high quality extrapolations of 3D shape and skeleton skinning weights. These contributions will more firmly place TAVA into the realm of inverse graphics for computer vision.
+		This project will be built on top of Ruilong’s recent submission “TAVA: Template-free Animatable Volumetric Actors,” which extends MipNeRF [1] to animatable objects using Neural Radiance Fields (NeRF) [2]. The pipeline of TAVA is shown in Figure 1 (below). TAVA already succeeds at extracting a 3D shape and skeleton skinning weights which extrapolate well to poses not seen during training (out-of-distribution). However, the input TAVA needs to extract this info includes multi-view video as well as per-frame ground truth skeleton pose information, the latter of which might not be readily available to the common person. To make rendering 3D animatable actors more accessible, we plan to decrease TAVA’s dependence on skeleton pose information. Specifically, we aim to show that 1) approximate skeleton pose data can be inferred directly from multi-view video; and 2) inferred skeleton pose data is sufficient to produce high quality extrapolations of 3D shape and skeleton skinning weights. These contributions will more firmly place TAVA into the realm of inverse graphics for computer vision. 
+	</p>
 
+	<div align="middle">
+		<img src="images/figure1.png" align="middle" width="500px">
+		<figcaption><i>[insert TAVA figure caption here]</i></figcaption>
+	</div>
+
+	<p>
+		The inputs to TAVA are a set of multi-view videos of an actor with per-frame 3D poses. Through neural inverse rendering, we are able to disentangle the geometry, appearance, skinning weights, and shading effects of this actor and create a volumetric digital avatar of this actor in the canonical space. It can then be used for novel-pose rendering and editing.
 	</p>
 	<br>
 
