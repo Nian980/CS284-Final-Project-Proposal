@@ -54,10 +54,10 @@
 
 	<h1 align="middle">Team Members</h1>
 
-	<p>
+	<p align="middle">
 		Erich Liang, 
 		Ethan Weber, 
-		Nianxu Wang, 
+		Nianxu Wang,
 		Ruilong Li
 	</p>
 	<br>
@@ -66,7 +66,8 @@
 	<h1 align="middle">Problem Description</h1>
 
 	<p>
-		Here you should provide the context for your idea. Describe the problem that you are trying to solve, why it is important, where it is challenging. Give us a general idea on how you are going to solve it.
+		This project will be built on top of Ruilong’s recent submission “TAVA: Template-free Animatable Volumetric Actors,” which extends MipNeRF to animatable objects. The pipeline of TAVA is shown in Figure 1 (below). TAVA already succeeds at extracting a 3D shape and skeleton skinning weights which extrapolate well to poses not seen during training (out-of-distribution). However, the input TAVA needs to extract this info includes multi-view video as well as per-frame ground truth skeleton pose information, the latter of which might not be readily available to the common person. To make rendering 3D animatable actors more accessible, we plan to decrease TAVA’s dependence on skeleton pose information. Specifically, we aim to show that 1) approximate skeleton pose data can be inferred directly from multi-view video; and 2) inferred skeleton pose data is sufficient to produce high quality extrapolations of 3D shape and skeleton skinning weights. These contributions will more firmly place TAVA into the realm of inverse graphics for computer vision.
+
 	</p>
 	<br>
 
